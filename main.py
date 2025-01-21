@@ -52,6 +52,12 @@ def main():
         for dr in drawable:
             dr.draw(screen)
         
+        for ast in asteroids:
+            for bullet in shots:
+                if bullet.has_collided(ast):
+                    bullet.kill()
+                    ast.kill()
+        
         pygame.display.flip()
 
         dt = clock.tick() / 1000
